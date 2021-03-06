@@ -18,8 +18,10 @@ pipeline {
         }
         stage('API Test') {
             steps {
-                git 'https://github.com/Leandrofdx/apitasks'
-                sh 'mvn test'
+                dir('api-teste') {
+                    git 'https://github.com/Leandrofdx/apitasks'
+                    sh 'mvn test'
+                }
             }
         }
     }
