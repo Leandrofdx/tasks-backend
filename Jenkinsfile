@@ -24,5 +24,14 @@ pipeline {
                 }
             }
         }
+      stage('Deploy Front-end') {
+            steps {
+                dir('tasks-frontend') {
+                    git 'https://github.com/Leandrofdx/https://github.com/Leandrofdx/tasks-frontend'
+                    sh 'mvn clean package'
+                    deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
+                }
+            }
+        }
     }
 }
