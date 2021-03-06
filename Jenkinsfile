@@ -21,5 +21,6 @@ pipeline {
                 git 'https://github.com/Leandrofdx/apitasks'
                 sh 'mvn test'
             }
+        }
     }
 }
