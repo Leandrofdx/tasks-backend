@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Funcional Test') {
             steps {
-                dir('func-teste') {
+                dir('funci-teste') {
                     git 'https://github.com/Leandrofdx/funcional-tasks'
                     sh 'mvn test'
                 }
@@ -50,7 +50,7 @@ pipeline {
     }
     post {
         always {                
-            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, target/surefire-reports/*.xml, func-teste/target/surefire-reports/*.xml'
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, target/surefire-reports/*.xml, funci-teste/target/surefire-reports/*.xml'
         }
     }
 }
