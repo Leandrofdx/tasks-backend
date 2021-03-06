@@ -33,6 +33,14 @@ pipeline {
                 }
             }
         }
+        stage('Functional Test') {
+            steps {
+                dir('functional-teste') {
+                    git 'https://github.com/Leandrofdx/funcional-tasks'
+                    sh 'mvn test'
+                }
+            }
+        }
 
 
     }
